@@ -6,7 +6,7 @@ on:
   # Triggers the workflow on push when both conditions (branch & paths) match
    push:
     branches:
-     - develop
+     - main
     paths:
      - 'azure/sample-resource/**'
 
@@ -30,11 +30,6 @@ jobs:
       # Checks-out your repository 
       - name: Checkout
         uses: actions/checkout@v3
-
-      # Use GIT TOKEN
-      - name: Use GIT TOKEN
-        run: |
-         git config --global url."https://${{secrets.TOKEN}}@github.com".insteadOf "https://github.com"
         
       # Github Authentication with Azure   
       - uses: azure/login@v1
